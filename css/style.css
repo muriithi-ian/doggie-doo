@@ -25,32 +25,19 @@ body {
 	align-items: center;
 	text-align: center;
 	display: flex;
-	font-size: 1.5em;
-	color: rgb(88 199 250 / 0%);
+	flex-direction: column;
+	font-size: 1 em;
+	color: #58c7fa;
 	cursor: pointer;
 	font-family: cursive;
 }
 
-.card:hover {
-	color: rgb(88 199 250 / 100%);
-	transition: color 1s;
-}
-.card:hover:before,
-.card:hover:after {
+.card:hover:before {
 	animation: none;
 	opacity: 0;
 }
-
-.card::before {
-	content: "";
-	width: 104%;
-	height: 102%;
-	border-radius: 8px;
-	background-image: linear-gradient(132deg, #5ddcff, #3c67e3 43%, #4e00c2);
-	position: absolute;
-	z-index: -1;
-	top: -1%;
-	left: -2%;
+.card:hover:after {
+	background-image: linear-gradient(132deg, #805dff, #8430d3 43%, #4a0fa1);
 	animation: spin 2.5s linear infinite;
 }
 
@@ -66,27 +53,22 @@ body {
 	margin: 0 auto;
 	transform: scale(0.8);
 	filter: blur(calc(var(--card-height) / 6));
-	background-image: linear-gradient(
-		var(--rotate),
-		#5ddcff,
-		#3c67e3 43%,
-		#4e00c2
-	);
+	background-image: linear-gradient(132deg, #5ddcff, #3c67e3 43%, #4e00c2);
 	opacity: 1;
 	transition: opacity 0.5s;
 	animation: spin 2.5s linear infinite;
 }
 img {
-    width:inherit;
+	width: inherit;
 	height: auto;
 }
 
 @keyframes spin {
 	0% {
-		--rotate: 0deg;
+		transform: rotate(0deg);
 	}
 	100% {
-		--rotate: 360deg;
+		transform:rotate(360deg);
 	}
 }
 
