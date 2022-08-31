@@ -73,8 +73,10 @@ body {
 }
 
 img {
-	width: inherit;
 	height: auto;
+	width: auto;
+	max-width:var(--card-width);
+	max-height: calc(var(--card-height) * 0.7);
 }
 
 #breedDetails{
