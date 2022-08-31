@@ -5,6 +5,8 @@
 
 body {
 	min-height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
 	background: #212534;
 	display: flex;
 	align-items: center;
@@ -26,7 +28,7 @@ body {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	font-size: 1 em;
+	font-size: 1.2em;
 	color: #58c7fa;
 	cursor: pointer;
 	font-family: cursive;
@@ -36,14 +38,14 @@ body {
 	animation: none;
 	opacity: 0;
 }
-#breedInput{
+#breedInput {
 	width: 100%;
 	height: 100%;
 	border: none;
 	border-radius: 6px;
 	background: #212534;
 	color: #58c7fa;
-	font-size: 1em;
+	font-size: 1.2em;
 	font-family: cursive;
 	padding: 10px;
 	margin-bottom: 10px;
@@ -80,7 +82,7 @@ img {
 		transform: rotate(0deg);
 	}
 	100% {
-		transform:rotate(360deg);
+		transform: rotate(360deg);
 	}
 }
 

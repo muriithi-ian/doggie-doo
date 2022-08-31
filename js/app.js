@@ -1,8 +1,13 @@
 /* targets */
 const breedInput = document.querySelector("#breedInput");
+const breedName = document.querySelector("#breedName");
+const dogImage = document.querySelector("#dogImage");
+const breedDetails = document.querySelector("#breedDetails");
 /* targets */
 document.addEventListener("DOMContentLoaded", () => {
-	fetchRandomImage();
+	fetchRandomImage().then((data) => {
+		renderRandomImage(data);
+	});
 	fetchBreedList().then((data) => {
 		renderBreedList(data);
 	});
@@ -14,9 +19,6 @@ function fetchRandomImage(breed = null) {
 		: "https://dog.ceo/api/breeds/image/random";
 	return fetch(url)
 		.then((res) => res.json())
-		.then((data) => {
-			console.log(data);
-		})
 		.catch((err) => {
 			console.log(err);
 		});
@@ -39,4 +41,11 @@ function renderBreedList(data) {
 		option.innerText = breed;
 		breedInput.appendChild(option);
 	});
+}
+
+function renderRandomImage(data) {
+	let url = data.message;
+	dogImage.src = url;
+	breedName.textContent = url.split("/")[4];
+	breedDetails.textContent = "Hope you like your new Friend!";
 }
