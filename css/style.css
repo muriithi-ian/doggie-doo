@@ -36,9 +36,20 @@ body {
 	animation: none;
 	opacity: 0;
 }
+#breedInput{
+	width: 100%;
+	height: 100%;
+	border: none;
+	border-radius: 6px;
+	background: #212534;
+	color: #58c7fa;
+	font-size: 1em;
+	font-family: cursive;
+	padding: 10px;
+	margin-bottom: 10px;
+}
 .card:hover:after {
-	background-image: linear-gradient(132deg, #805dff, #8430d3 43%, #4a0fa1);
-	animation: spin 2.5s linear infinite;
+	background-image: linear-gradient(132deg, #9c81fa, #c827d6 43%, #4a0fa1);
 }
 
 .card::after {
@@ -56,8 +67,9 @@ body {
 	background-image: linear-gradient(132deg, #5ddcff, #3c67e3 43%, #4e00c2);
 	opacity: 1;
 	transition: opacity 0.5s;
-	animation: spin 2.5s linear infinite;
+	animation: spin 10s linear infinite;
 }
+
 img {
 	width: inherit;
 	height: auto;
