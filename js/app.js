@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 	fetchBreedList().then((data) => {
 		renderBreedList(data);
+		populateBreedList(data);
 	});
 });
 
@@ -55,11 +56,25 @@ function renderRandomImage(data) {
 	breedName.textContent = url.split("/")[4];
 	dogImage.alt = breedName.textContent;
 	breedDetails.textContent = "Hope you like your new Friend!";
+	fetchLikes(breedName.textContent);
+	breedLikes.textContent = fetchedLikes;
 
 	//Add likes
 	likesButton.addEventListener("click", (e) => {
 		let likes = parseInt(breedLikes.textContent.split(" ")[0]);
 		breedLikes.textContent = `${likes + 1} likes`;
+		fetch("http://localhost:3000/breed", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				breed: breedName.textContent,
+				likes: likes + 1,
+			}),
+		}).catch((err) => {
+			console.log(err);
+		});
 	});
 }
 
@@ -86,3 +101,44 @@ breedDetails.addEventListener("click", (e) => {
 		renderRandomImage(data);
 	});
 });
+
+function fetchLikes(displayedBreed) {
+	return fetch("http://localhost:3000/breeds", {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			return data.filter((breed) => {
+				return breed.name === displayedBreed ? breed.likes : 0;
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+}
+
+function populateBreedList(data) {
+	const fetchedList = Object.keys(data.message);
+	const newList = [];
+	let id = 1;
+	fetchedList.forEach((breed) => {
+		newList.push({
+			id: id,
+			name: breed,
+			likes: 0,
+		});
+		id += 1;
+	});
+	return fetch("http://localhost:3000/breeds", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(newList),
+	}).catch((err) => {
+		console.log(err);
+	});
+}
