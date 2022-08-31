@@ -75,17 +75,17 @@ body {
 img {
 	height: auto;
 	width: auto;
-	max-width:var(--card-width);
-	max-height: calc(var(--card-height) * 0.7);
+	max-width: var(--card-width);
+	max-height: calc(var(--card-height) * 0.6);
 }
 
-#breedDetails{
+#breedDetails {
 	border: #3c67e3 2px solid;
 	border-radius: 10px;
 	padding: 10px;
 }
 
-#breedDetails:hover{
+#breedDetails:hover {
 	border: #c827d6 2px solid;
 }
 
@@ -98,23 +98,21 @@ img {
 	}
 }
 
-.likes{
-	width: calc(var(--card-width)*0.8);
+.likes {
+	width: calc(var(--card-width) * 0.8);
 	display: flex;
 	justify-content: space-between;
-	padding: 5px;
+	padding: 10px 0 0 0;
 }
 
-.likes i{
+.likes i {
 	color: red;
-	transition: transform .2s;
+	transition: transform 0.3s;
 }
 
-.likes i:active{
-transform:scale(2)
-
+.likes i:active {
+	transform: scale(2);
 }
-
 
 footer {
 	position: fixed;

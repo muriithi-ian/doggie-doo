@@ -3,6 +3,8 @@ const breedInput = document.querySelector("#breedInput");
 const breedName = document.querySelector("#breedName");
 const dogImage = document.querySelector("#dogImage");
 const breedDetails = document.querySelector("#breedDetails");
+const breedLikes = document.querySelector("#likes");
+const likesButton = document.querySelector(".likes i");
 /* targets */
 document.addEventListener("DOMContentLoaded", () => {
 	fetchRandomImage().then((data) => {
@@ -53,6 +55,12 @@ function renderRandomImage(data) {
 	breedName.textContent = url.split("/")[4];
 	dogImage.alt = breedName.textContent;
 	breedDetails.textContent = "Hope you like your new Friend!";
+
+	//Add likes
+	likesButton.addEventListener("click", (e) => {
+		let likes = parseInt(breedLikes.textContent.split(" ")[0]);
+		breedLikes.textContent = `${likes + 1} likes`;
+	});
 }
 
 //get random image by breed
