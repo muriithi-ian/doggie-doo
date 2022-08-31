@@ -77,6 +77,16 @@ img {
 	height: auto;
 }
 
+#breedDetails{
+	border: #3c67e3 2px solid;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+#breedDetails:hover{
+	border: #c827d6 2px solid;
+}
+
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);

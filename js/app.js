@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function fetchRandomImage(breed = null) {
+    breedName.textContent = "Hang on";
+		dogImage.src = "./images/loading1.gif";
+		breedDetails.textContent = "Lemme fetch your favourite bud...";
 	url = breed
 		? `https://dog.ceo/api/breed/${breed}/images/random`
 		: "https://dog.ceo/api/breeds/image/random";
@@ -50,11 +53,26 @@ function renderRandomImage(data) {
 	breedDetails.textContent = "Hope you like your new Friend!";
 }
 
+//get random image by breed
 breedInput.addEventListener("change", (e) => {
-	breedName.textContent = "Hang on";
-	dogImage.src = "./images/loading1.gif";
-	breedDetails.textContent = "Lemme fetch your favourite bud...";
 	fetchRandomImage(e.target.value).then((data) => {
+		renderRandomImage(data);
+	});
+});
+
+//change text on hover
+breedDetails.addEventListener("mouseover", (e) => {
+	breedDetails.textContent = "Click me to meet a new friend!";
+});
+
+breedDetails.addEventListener("mouseout", (e) => {
+	breedDetails.textContent = "Hope you like your new Friend!";
+});
+
+//change image on click
+breedDetails.addEventListener("click", (e) => {
+	let breed = breedInput.value || null;
+	fetchRandomImage(breed).then((data) => {
 		renderRandomImage(data);
 	});
 });
