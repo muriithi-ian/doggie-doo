@@ -98,6 +98,23 @@ img {
 	}
 }
 
+.likes{
+	width: calc(var(--card-width)*0.8);
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+}
+
+.likes i{
+	color: red;
+	transition: transform .2s;
+}
+
+.likes i:active{
+transform:scale(2)
+
+}
+
 
 footer {
 	position: fixed;
