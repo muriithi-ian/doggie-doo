@@ -6,7 +6,7 @@ const breedDetails = document.querySelector("#breedDetails");
 /* targets */
 document.addEventListener("DOMContentLoaded", () => {
 	fetchRandomImage().then((data) => {
-		setTimeout(renderRandomImage(data), 2000);
+		renderRandomImage(data);
 	});
 	fetchBreedList().then((data) => {
 		renderBreedList(data);
@@ -17,7 +17,7 @@ function fetchRandomImage(breed = null) {
 	breedName.textContent = "Hang on";
 	dogImage.src = "./images/loading1.gif";
 	dogImage.alt = "Loading...";
-	breedDetails.textContent = "Lemme fetch your favourite bud...";
+	breedDetails.textContent = "Lemme fetch your favorite bud...";
 	url = breed
 		? `https://dog.ceo/api/breed/${breed}/images/random`
 		: "https://dog.ceo/api/breeds/image/random";
