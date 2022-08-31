@@ -49,3 +49,12 @@ function renderRandomImage(data) {
 	breedName.textContent = url.split("/")[4];
 	breedDetails.textContent = "Hope you like your new Friend!";
 }
+
+breedInput.addEventListener("change", (e) => {
+	breedName.textContent = "Hang on";
+	dogImage.src = "./images/loading1.gif";
+	breedDetails.textContent = "Lemme fetch your favourite bud...";
+	fetchRandomImage(e.target.value).then((data) => {
+		renderRandomImage(data);
+	});
+});
