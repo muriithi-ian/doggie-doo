@@ -1,34 +1,42 @@
 /* targets */
+const breedInput = document.querySelector("#breedInput");
 /* targets */
 document.addEventListener("DOMContentLoaded", () => {
 	fetchRandomImage();
-	fetchBreedList();
+	fetchBreedList().then((data) => {
+		renderBreedList(data);
+	});
 });
 
 function fetchRandomImage(breed = null) {
 	url = breed
 		? `https://dog.ceo/api/breed/${breed}/images/random`
 		: "https://dog.ceo/api/breeds/image/random";
-	fetch(url)
+	return fetch(url)
 		.then((res) => res.json())
 		.then((data) => {
 			console.log(data);
 		})
 		.catch((err) => {
-			err;
+			console.log(err);
 		});
 }
 
 function fetchBreedList() {
 	url = "https://dog.ceo/api/breeds/list/all";
-	fetch(url)
+	return fetch(url)
 		.then((res) => res.json())
-		.then((data) => {
-			console.log(data);
-		})
 		.catch((err) => {
-			err;
+			console.log(err);
 		});
 }
 
-function renderBreedList(data) {}
+function renderBreedList(data) {
+	const fetchedList = Object.keys(data.message);
+	fetchedList.forEach((breed) => {
+		option = document.createElement("option");
+		option.value = breed;
+		option.innerText = breed;
+		breedInput.appendChild(option);
+	});
+}
