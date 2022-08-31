@@ -19,3 +19,7 @@ This is doggie-doo, a simple web  app that allows you to view random images of *
 - Open the index.html file in the folder and start the server by pressing the **Go Live** button in the bottom right corner
 - You can now view the app in the browser at [Doggie Doo](http://localhost:5500)
 
+## Licences
+This project is licensed under the [BSD 2-Clause License ](./LICENSE)
+
+Copyright (c) 2020 Ian Muriithi
