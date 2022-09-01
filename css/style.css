@@ -107,7 +107,7 @@ img {
 
 .likes i {
 	color: red;
-	transition: transform 0.3s;
+	transition: transform 0.1s;
 }
 
 .likes i:active {

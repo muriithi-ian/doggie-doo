@@ -18,7 +18,7 @@
     {
       "id": 4,
       "name": "akita",
-      "likes": 0
+      "likes": 2
     },
     {
       "id": 5,
@@ -58,14 +58,14 @@
     {
       "id": 12,
       "name": "boxer",
-      "likes": 0
+      "likes": 7
     },
     {
       "id": 13,
       "name": "brabancon",
       "likes": 0
     },
-      {
+    {
       "id": 14,
       "name": "briard",
       "likes": 0
@@ -173,7 +173,7 @@
     {
       "id": 35,
       "name": "entlebucher",
-      "likes": 0
+      "likes": 2
     },
     {
       "id": 36,
@@ -448,7 +448,7 @@
     {
       "id": 90,
       "name": "terrier",
-      "likes": 0
+      "likes": 3
     },
     {
       "id": 91,
