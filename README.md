@@ -18,7 +18,7 @@
 This is doggie-doo, a simple web  app that allows you to view random images of **man's best friend**. For the carefree, get some completely random pictures or exercise some control by filtering the breed.
 
 ## link
-You can view the live page from [here](https://muriithi-ian.github.io/muriithi-ian/doggie-doo/)
+You can view the live page from [here](https://muriithi-ian.github.io/doggie-doo/)
 
 ## Authors(dog lovers)
 - Ian Muriithi 🐕
