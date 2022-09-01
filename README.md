@@ -20,11 +20,13 @@ You can view the live page from [here](https://muriithi-ian.github.io/muriithi-i
 
 ## Setup
 - clone the repo
-
-### Running directly on browser
-- open the folder
+- open the terminal and navigate to the root folder of the project and run the following commands
+  - `npm i -g json-server `
+  - `json-server --watch db.json`
+- Proceed with the steps below
+### Running directly on browser(option 1)
 - open the index.html file with your browser
-### Live server on vscode
+### Live server on vscode(option 2)
 - open the folder with vscode
 - (optional) if you do not have the live server extension installed, install it
   - installation instructions can be found here: [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
