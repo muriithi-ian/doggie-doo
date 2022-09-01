@@ -7,6 +7,7 @@ const breedLikes = document.querySelector("#likes");
 const likesButton = document.querySelector(".likes i");
 /* targets */
 
+const LIVEENV = true;
 let currentBreed = {};
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,7 +33,9 @@ function fetchRandomImage(breed = null) {
 }
 
 function fetchBreedList() {
-	url = "http://localhost:3000/breeds";
+	url = LIVEENV
+		? "https://dog.ceo/api/breeds/list/all"
+		: "http://localhost:3000/breeds";
 	return axios
 		.get(url, {
 			headers: {
@@ -45,10 +48,20 @@ function fetchBreedList() {
 }
 
 function renderBreedList(res) {
+	if (LIVEENV) {
+		const breeds = res.data.message;
+		const breedList = Object.keys(breeds);
+		breedList.forEach((breed) => {
+			const breedOption = document.createElement("option");
+			breedOption.textContent = breed;
+			breedInput.appendChild(breedOption);
+		});
+		return;
+	}
 	res.data.forEach((breed) => {
 		option = document.createElement("option");
 		option.value = breed.name;
-		option.innerText = breed.name;
+		option.textContent = breed.name;
 		breedInput.appendChild(option);
 	});
 }
@@ -59,14 +72,19 @@ function renderRandomImage(res) {
 	breedName.textContent = url.split("/")[4];
 	dogImage.alt = breedName.textContent;
 	breedDetails.textContent = "Hope you like your new Friend!";
-	fetchLikes(breedName.textContent);
+	breedLikes.textContent = `0 likes`;
+
+	//check on local
+	LIVEENV ? null : fetchLikes(breedName.textContent);
 
 	//Add likes
 	likesButton.addEventListener("click", (e) => {
 		const likes = parseInt(breedLikes.textContent.split(" ")[0]) + 1;
 		currentBreed.likes = likes;
 		breedLikes.textContent = `${likes} likes`;
-		likeBreed();
+
+		//Update likes in database if on local
+		LIVEENV ? null : likeBreed();
 	});
 }
 
@@ -77,14 +95,14 @@ breedInput.addEventListener("change", (e) => {
 	});
 });
 
-//change text on hover
-// breedDetails.addEventListener("mouseover", (e) => {
-// 	breedDetails.textContent = "Click me to meet a new friend!";
-// });
+// change text on hover
+breedDetails.addEventListener("mouseover", (e) => {
+	breedDetails.textContent = "Click me to meet a new friend!";
+});
 
-// breedDetails.addEventListener("mouseout", (e) => {
-// 	breedDetails.textContent = "Hope you like your new Friend!";
-// });
+breedDetails.addEventListener("mouseout", (e) => {
+	breedDetails.textContent = "Hope you like your new Friend!";
+});
 
 //change image on click
 breedDetails.addEventListener("click", (e) => {

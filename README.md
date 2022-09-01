@@ -5,8 +5,8 @@
   - [link](#link)
   - [Authors(dog lovers)](#authorsdog-lovers)
   - [Setup](#setup)
-    - [Running directly on browser](#running-directly-on-browser)
-    - [Live server on vscode](#live-server-on-vscode)
+    - [Running directly on browser(option 1)](#running-directly-on-browseroption-1)
+    - [Live server on vscode(option 2)](#live-server-on-vscodeoption-2)
   - [Licenses](#licenses)
 
 ## Description
@@ -20,9 +20,10 @@ You can view the live page from [here](https://muriithi-ian.github.io/muriithi-i
 
 ## Setup
 - clone the repo
-- open the terminal and navigate to the root folder of the project and run the following commands
-  - `npm i -g json-server `
-  - `json-server --watch db.json`
+  - open './js/app.js' and change the value of `LIVEENV` to `false` to use json server to persist the data or `true` to use the online endpoints 
+    - open the terminal and navigate to the root folder of the project and run the following commands
+    - `npm i -g json-server `
+    - `json-server --watch db.json`
 - Proceed with the steps below
 ### Running directly on browser(option 1)
 - open the index.html file with your browser
