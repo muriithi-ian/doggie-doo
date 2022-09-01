@@ -1,6 +1,7 @@
 # doggie-doo
 
 - [doggie-doo](#doggie-doo)
+  - [Preview](#preview)
   - [Description](#description)
   - [link](#link)
   - [Authors(dog lovers)](#authorsdog-lovers)
@@ -8,6 +9,10 @@
     - [Running directly on browser(option 1)](#running-directly-on-browseroption-1)
     - [Live server on vscode(option 2)](#live-server-on-vscodeoption-2)
   - [Licenses](#licenses)
+
+
+## Preview
+![alt text][preview]
 
 ## Description
 This is doggie-doo, a simple web  app that allows you to view random images of **man's best friend**. For the carefree, get some completely random pictures or exercise some control by filtering the breed.
@@ -38,3 +43,5 @@ You can view the live page from [here](https://muriithi-ian.github.io/muriithi-i
 This project is licensed under the [BSD 2-Clause License ](./LICENSE)
 
 Copyright (c) 2020 Ian Muriithi
+
+[preview]: ./images/doggie-doo.gif "preview"
