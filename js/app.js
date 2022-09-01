@@ -65,6 +65,7 @@ function renderBreedList(res) {
 		breedInput.appendChild(option);
 	});
 }
+let addlikesListener = false;
 
 function renderRandomImage(res) {
 	let url = res.data.message;
@@ -78,14 +79,21 @@ function renderRandomImage(res) {
 	LIVEENV ? null : fetchLikes(breedName.textContent);
 
 	//Add likes
-	likesButton.addEventListener("click", (e) => {
-		const likes = parseInt(breedLikes.textContent.split(" ")[0]) + 1;
-		currentBreed.likes = likes;
-		breedLikes.textContent = `${likes} likes`;
-
-		//Update likes in database if on local
-		LIVEENV ? null : likeBreed();
+	likesButton.removeEventListener("click", (e) => {
+		console.log(e);
 	});
+
+	if (!addlikesListener) {
+		likesButton.addEventListener("click", (e) => {
+			const likes = parseInt(breedLikes.textContent.split(" ")[0]) + 1;
+			currentBreed.likes = likes;
+			breedLikes.textContent = `${likes} likes`;
+
+			//Update likes in database if on local
+			LIVEENV ? null : likeBreed();
+			addlikesListener = true;
+		});
+	}
 }
 
 //get random image by breed
